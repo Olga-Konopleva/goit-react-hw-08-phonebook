@@ -9,7 +9,7 @@ import RegisterView from './views/RegisterView';
 class App extends Component {
   render() {
     return (
-      <container>
+      <div>
         <AppBar />
         <Switch>
           <Route exact path="/" component={HomeView} />
@@ -17,7 +17,7 @@ class App extends Component {
           <Route path="/login" component={LoginView} />
           <Route path="/register" component={RegisterView} />
         </Switch>
-      </container>
+      </div>
     );
   }
 }

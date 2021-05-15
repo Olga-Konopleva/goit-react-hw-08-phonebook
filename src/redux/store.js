@@ -16,6 +16,7 @@ import storage from 'redux-persist/lib/storage';
 // import { combineReducers, createStore } from 'redux';
 // import { composeWithDevTools } from 'redux-devtools-extension';
 import contactsReducer from './contacts/contacts-reducer';
+import authReducer from './auth/auth-reducer';
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -33,6 +34,7 @@ const middleware = [
 
 const store = configureStore({
   reducer: {
+    auth: authReducer,
     contacts: contactsReducer,
   },
   middleware,
