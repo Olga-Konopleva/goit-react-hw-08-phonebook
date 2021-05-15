@@ -2,16 +2,24 @@ import { React, Component } from 'react';
 import Navigation from '../Navigation/Navigation';
 import AuthNav from './AuthNav/AuthNav';
 import UserMenu from './UserMenu/UserMenu';
+import { getAutendicated } from '../../redux/auth/auth-selectors';
+import { connect } from 'react-redux';
 
 class AppBar extends Component {
   render() {
+    const { isAutendicated } = this.props;
+
     return (
       <header>
         <Navigation />
-        {false ? <UserMenu /> : <AuthNav />}
+        {isAutendicated ? <UserMenu /> : <AuthNav />}
       </header>
     );
   }
 }
 
-export default AppBar;
+const mapStateToProps = state => ({
+  isAutendicated: getAutendicated(state),
+});
+
+export default connect(mapStateToProps)(AppBar);

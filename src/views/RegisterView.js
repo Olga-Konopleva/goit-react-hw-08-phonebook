@@ -50,7 +50,7 @@ class RegisterView extends Component {
               onChange={this.handleChange}
             />
           </label>
-          <button type="submit">Войти</button>
+          <button type="submit">Зарегистрироваться</button>
         </form>
       </div>
     );

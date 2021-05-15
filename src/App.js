@@ -1,12 +1,18 @@
 import { Component } from 'react';
+import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router';
 import AppBar from './components/AppBar/AppBar';
+import { getCurrentUser } from './redux/auth/auth-operations';
 import ContactsView from './views/ContactsView';
 import HomeView from './views/HomeView';
 import LoginView from './views/LoginView';
 import RegisterView from './views/RegisterView';
 
 class App extends Component {
+  componentDidMount() {
+    this.props.onGetCurrentUser();
+  }
+
   render() {
     return (
       <div>
@@ -22,4 +28,8 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = {
+  onGetCurrentUser: getCurrentUser,
+};
+
+export default connect(null, mapDispatchToProps)(App);
