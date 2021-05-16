@@ -1,6 +1,8 @@
 import { React, Component } from 'react';
 import { connect } from 'react-redux';
 import { logIn } from '../redux/auth/auth-operations';
+import styles from './LoginView.module.scss';
+import styled from 'styled-components';
 
 class LoginView extends Component {
   state = {
@@ -21,9 +23,9 @@ class LoginView extends Component {
   render() {
     const { email, password } = this.state;
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <label>
+      <div className={styles.container}>
+        <form onSubmit={this.handleSubmit} className={styles.form}>
+          <label className={styles.label}>
             <span>Почта</span>
             <input
               type="email"
@@ -32,7 +34,7 @@ class LoginView extends Component {
               onChange={this.handleChange}
             />
           </label>
-          <label>
+          <label className={styles.label}>
             <span>Пароль</span>
             <input
               type="password"
@@ -41,7 +43,7 @@ class LoginView extends Component {
               onChange={this.handleChange}
             />
           </label>
-          <button type="submit">Войти</button>
+          <Button type="submit">Войти</Button>
         </form>
       </div>
     );
@@ -53,3 +55,18 @@ const mapDispatchToProps = {
 };
 
 export default connect(null, mapDispatchToProps)(LoginView);
+
+const Button = styled.button`
+  background: transparent;
+  border-radius: 6px;
+  border: 2px solid green;
+  color: green;
+  width: 150px;
+  margin-top: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.25em 1em;
+  &:hover {
+    background: LemonChiffon;
+  }
+`;

@@ -1,6 +1,8 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import { register } from '../redux/auth/auth-operations';
+import styled from 'styled-components';
+import styles from './LoginView.module.scss';
 
 class RegisterView extends Component {
   state = {
@@ -22,8 +24,8 @@ class RegisterView extends Component {
     const { name, email, password } = this.state;
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <label>
+        <form onSubmit={this.handleSubmit} className={styles.form}>
+          <label className={styles.label}>
             <span>Имя</span>
             <input
               type="text"
@@ -32,7 +34,7 @@ class RegisterView extends Component {
               onChange={this.handleChange}
             />
           </label>
-          <label>
+          <label className={styles.label}>
             <span>Почта</span>
             <input
               type="email"
@@ -41,7 +43,7 @@ class RegisterView extends Component {
               onChange={this.handleChange}
             />
           </label>
-          <label>
+          <label className={styles.label}>
             <span>Пароль</span>
             <input
               type="password"
@@ -50,7 +52,7 @@ class RegisterView extends Component {
               onChange={this.handleChange}
             />
           </label>
-          <button type="submit">Зарегистрироваться</button>
+          <Button type="submit">Зарегистрироваться</Button>
         </form>
       </div>
     );
@@ -62,3 +64,18 @@ const mapDispatchToProps = {
 };
 
 export default connect(null, mapDispatchToProps)(RegisterView);
+
+const Button = styled.button`
+  background: transparent;
+  border-radius: 6px;
+  border: 2px solid green;
+  color: green;
+  width: 150px;
+  margin-top: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.25em 1em;
+  &:hover {
+    background: LemonChiffon;
+  }
+`;
