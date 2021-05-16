@@ -4,7 +4,9 @@ import { getName } from '../redux/auth/auth-selectors';
 
 class HomeView extends Component {
   render() {
-    return <h1>Привет, {this.props.name}! </h1>;
+    return (
+      <h1>Приветствуем! Здесь ты можешь хранить свои телефонные контакты! </h1>
+    );
   }
 }
 

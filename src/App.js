@@ -2,6 +2,7 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router';
 import AppBar from './components/AppBar/AppBar';
+import PrivateRoute from './components/PrivateRoute';
 import { getCurrentUser } from './redux/auth/auth-operations';
 import ContactsView from './views/ContactsView';
 import HomeView from './views/HomeView';
@@ -19,7 +20,7 @@ class App extends Component {
         <AppBar />
         <Switch>
           <Route exact path="/" component={HomeView} />
-          <Route path="/contacts" component={ContactsView} />
+          <PrivateRoute path="/contacts" component={ContactsView} />
           <Route path="/login" component={LoginView} />
           <Route path="/register" component={RegisterView} />
         </Switch>
