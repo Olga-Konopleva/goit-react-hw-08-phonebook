@@ -68,7 +68,7 @@ export const getCurrentUser = () => async (dispatch, getState) => {
   }
 
   token.set(persistedToken);
-  dispatch(getCurrentUserRequest);
+  dispatch(getCurrentUserRequest());
 
   try {
     const { data } = await axios.get('/users/current');
